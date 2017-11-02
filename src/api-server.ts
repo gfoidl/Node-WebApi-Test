@@ -14,6 +14,7 @@ export class ApiServer {
         this.Config();
 
         Server.buildServices(this._app, ...controllers);
+        Server.swagger(this._app, "./dist/swagger.json", "/api-doc", "localhost:8080", ["http"]);
     }
     //-------------------------------------------------------------------------
     private Config(): void {

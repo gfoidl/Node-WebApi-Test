@@ -6,15 +6,20 @@
     "license"        : "MIT",
     "devDependencies": {
         "tslint"    : "^5.8.0",
-        "typescript": "^2.6.1"
+        "typescript": "^2.6.1",
+        "rimraf"    : "^2.6.2"
     },
     "dependencies": {
-        "tslib"          : "^1.8.0",
-        "typescript-rest": "^1.1.2"
+        "tslib"                  : "^1.8.0",
+        "typescript-rest"        : "^1.1.2",
+        "typescript-rest-swagger": "^0.0.12"
     },
     "scripts": {
-        "build": "tsc",
-        "lint" : "tslint *.ts",
-        "start": "node dist/index.js"
+        "clean"  : "rimraf dist",
+        "tsc"    : "tsc",
+        "build"  : "yarn run clean && tsc && yarn run swagger",
+        "lint"   : "tslint *.ts",
+        "swagger": "swaggerGen -c ./swagger.config.json",
+        "start"  : "node dist/index.js"
     }
 }

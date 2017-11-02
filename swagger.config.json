@@ -1,0 +1,11 @@
+{
+    "swagger": {
+        "outputDirectory": "./dist",
+        "entryFile"      : "./src/index.ts",
+        "name"           : "WebAPI Test",
+        "description"    : "A simple WebAPI for testing Node.js",
+        "license"        : "MIT",
+        "produces"       : "application/json",
+        "version"        : "0.1.0"
+    }
+}
