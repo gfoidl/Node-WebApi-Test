@@ -17,9 +17,10 @@
     "scripts": {
         "clean"  : "rimraf dist",
         "tsc"    : "tsc",
-        "build"  : "yarn run clean && tsc && yarn run swagger",
         "lint"   : "tslint *.ts",
+        "build"  : "yarn run clean && tsc && yarn run swagger",
         "swagger": "swaggerGen -c ./swagger.config.json",
+        "docker" : "docker build -t gfoidl/webapi-test .",
         "start"  : "node dist/index.js"
     }
 }
