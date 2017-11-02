@@ -1,0 +1,20 @@
+﻿{
+    "rules": {
+        "adjacent-overload-signatures": true,
+        "class-name"                  : true,
+        "no-duplicate-variable"       : true,
+        "no-any"                      : true,
+        "no-empty"                    : true,
+        "no-empty-interface"          : true,
+        "no-invalid-template-strings" : true,
+        "no-invalid-this"             : true,
+        //"no-magic-numbers"              : [ true, 42, 69, 666 ],
+        "no-reference"                : true,
+        "no-reference-import"         : true,
+        "no-var-keyword"              : true,
+        "only-arrow-functions"        : true,
+        "quotemark"                   : [ true, "double" ],
+        "semicolon"                   : [ true, "always" ],
+        "typedef"                     : true
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "target"                : "es2016",
+        "module"                : "commonjs",
+        "lib"                   : [ "es2015" ],
+        "declaration"           : true,
+        "removeComments"        : true,
+        "importHelpers"         : true,
+        "strict"                : true,
+        //"noImplicitAny"           : true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata" : true,
+        "newLine"               : "LF",
+        "outDir"                : "dist",
+        "sourceMap"             : true
+    },
+    "exclude": [
+        "node_modules",
+        "dist"
+    ]
+}
