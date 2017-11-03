@@ -1,4 +1,5 @@
 import { Address, IAddress } from "./address";
+import "../extension-methods";
 //-----------------------------------------------------------------------------
 export class Person {
     public Name   : string;
@@ -6,7 +7,7 @@ export class Person {
     public Address: IAddress;
     //-------------------------------------------------------------------------
     constructor(name: string, age: number) {
-        this.Name    = name;
+        this.Name    = name.toFirstUpper();
         this.Age     = age;
         this.Address = Address.Default();
     }

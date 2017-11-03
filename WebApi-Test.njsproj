@@ -29,8 +29,10 @@
     <Content Include="tsconfig.json" />
     <Content Include="tslint.json" />
     <TypeScriptCompile Include="src\api-server.ts" />
+    <TypeScriptCompile Include="src\extension-methods.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="src\index.ts" />
-    <TypeScriptCompile Include="src\models\gender.ts" />
     <TypeScriptCompile Include="src\start.ts" />
     <TypeScriptCompile Include="src\controllers\hello-controller.ts" />
     <TypeScriptCompile Include="src\controllers\index.ts" />
