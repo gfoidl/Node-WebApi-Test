@@ -29,10 +29,16 @@
     <Content Include="tsconfig.json" />
     <Content Include="tslint.json" />
     <TypeScriptCompile Include="src\api-server.ts" />
+    <TypeScriptCompile Include="src\contracts\person-service.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="src\extension-methods.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="src\index.ts" />
+    <TypeScriptCompile Include="src\services\person-service.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="src\start.ts" />
     <TypeScriptCompile Include="src\controllers\hello-controller.ts" />
     <TypeScriptCompile Include="src\controllers\index.ts" />
@@ -45,6 +51,8 @@
     <Folder Include="src" />
     <Folder Include="src\controllers" />
     <Folder Include="src\models" />
+    <Folder Include="src\contracts\" />
+    <Folder Include="src\services\" />
     <Folder Include="src\views" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
