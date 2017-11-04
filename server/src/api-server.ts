@@ -3,7 +3,7 @@ import * as express from "express";
 import { Server }   from "typescript-rest";
 import * as http    from "http";
 import * as path    from "path";
-import controllers  from "./controllers"
+import controllers  from "./controllers";
 //-----------------------------------------------------------------------------
 export class ApiServer {
     private _app   : express.Application;

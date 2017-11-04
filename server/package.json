@@ -1,31 +1,31 @@
 {
-	"name"			 : "webapi",
-	"version"		 : "0.1.0",
-	"description"	 : "Test for Typescript and REST",
-	"main"			 : "dist/index.js",
-	"license"		 : "MIT",
-	"devDependencies": {
-		"tslint"		: "^5.8.0",
-		"typescript"	: "^2.6.1",
-		"rimraf"		: "^2.6.2",
-		"@types/winston": "2.3.7"
-	},
-	"dependencies": {
-		"mongodb"				 : "^2.2.33",
-		"tslib"					 : "^1.8.0",
-		"typeorm"				 : "^0.1.2",
-		"typescript-ioc"		 : "^1.0.2",
-		"typescript-rest"		 : "^1.1.2",
-		"typescript-rest-swagger": "^0.0.12",
-		"winston"				 : "^2.3.7"
-	},
-	"scripts": {
-		"clean"	 : "rimraf dist",
-		"tsc"	 : "tsc",
-		"lint"	 : "tslint *.ts",
-		"build"	 : "yarn run clean && tsc && yarn run swagger",
-		"swagger": "swaggerGen -c ./swagger.config.json",
-		"docker" : "docker build -t gfoidl/webapi-test .",
-		"start"	 : "node dist/index.js"
-	}
+    "name"           : "webapi",
+    "version"        : "0.1.0",
+    "description"    : "Test for Typescript and REST",
+    "main"           : "dist/index.js",
+    "license"        : "MIT",
+    "devDependencies": {
+        "tslint"        : "^5.8.0",
+        "typescript"    : "^2.6.1",
+        "rimraf"        : "^2.6.2",
+        "@types/winston": "2.3.7"
+    },
+    "dependencies": {
+        "mongodb"                : "^2.2.33",
+        "tslib"                  : "^1.8.0",
+        "typeorm"                : "^0.1.2",
+        "typescript-ioc"         : "^1.0.2",
+        "typescript-rest"        : "^1.1.2",
+        "typescript-rest-swagger": "^0.0.12",
+        "winston"                : "^2.3.7"
+    },
+    "scripts": {
+        "clean"  : "rimraf dist",
+        "tsc"    : "tsc",
+        "lint"   : "tslint -c tslint.json -p tsconfig.json",
+        "build"  : "yarn run clean && tsc && yarn run swagger",
+        "swagger": "swaggerGen -c ./swagger.config.json",
+        "docker" : "docker build -t gfoidl/webapi-test .",
+        "start"  : "node dist/index.js"
+    }
 }
