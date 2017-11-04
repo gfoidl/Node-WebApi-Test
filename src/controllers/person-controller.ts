@@ -1,3 +1,4 @@
+import * as logger                from "winston";
 import { GET, Path, PathParam }   from "typescript-rest";
 import { Inject }                 from "typescript-ioc";
 import { IPersonService, Person } from "../services/person-service";
@@ -13,15 +14,19 @@ export class PersonController {
     @Path("create/:name/:age")
     @GET
     public CreatePerson(
-        @PathParam("name") name : string,
-        @PathParam("age")  age  : number): Person {
-        return new Person(name, age);
+        @PathParam("name") name: string,
+        @PathParam("age")  age : number
+        ): Promise<Person> {
+        logger.verbose(`creating new person with name: ${name}`);
+
+        const person = new Person(name, age);
+        return this._personService.StorePerson(person);
     }
     //-------------------------------------------------------------------------
     @Path("all")
     @GET
-    public async GetAllPersons(): Promise<Person[]> {
-        const persons = await this._personService.GetAllPersons();
-        return persons;
+    public GetAllPersons(): Promise<Person[]> {
+        logger.verbose("getting all persons");
+        return this._personService.GetAllPersons();
     }
 }

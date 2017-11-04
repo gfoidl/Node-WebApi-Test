@@ -1,4 +1,5 @@
-﻿import { Provides }            from "typescript-ioc";
+﻿import * as logger                 from "winston";
+import { Provides }               from "typescript-ioc";
 import { Person, IPersonService } from "../contracts/person-service";
 //-----------------------------------------------------------------------------
 @Provides(IPersonService)
@@ -8,6 +9,14 @@ class PersonService implements IPersonService {
             const persons = PersonService.CreateDummyPersons();
 
             resolve(persons);
+        });
+    }
+    //-------------------------------------------------------------------------
+    public StorePerson(person: Person): Promise<Person> {
+        logger.warn("PersonService.StorePerson is not implemented, only a fake");
+
+        return new Promise<Person>((res, rej) => {
+            res(person);
         });
     }
     //-------------------------------------------------------------------------
