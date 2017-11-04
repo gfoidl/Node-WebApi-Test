@@ -6,8 +6,8 @@ npm-debug.log*
 *.js
 *.js.map
 *.d.ts
-/tests/*.xml
-/dist
+tests/*.xml
+dist
 /.vs
-/obj
-/bin
+obj
+bin
