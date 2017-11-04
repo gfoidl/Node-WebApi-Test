@@ -20,13 +20,13 @@ export class PersonController {
         logger.verbose(`creating new person with name: ${name}`);
 
         const person = new Person(name, age);
-        return this._personService.StorePerson(person);
+        return this._personService.StorePersonAsync(person);
     }
     //-------------------------------------------------------------------------
     @Path("all")
     @GET
     public GetAllPersons(): Promise<Person[]> {
         logger.verbose("getting all persons");
-        return this._personService.GetAllPersons();
+        return this._personService.GetAllPersonsAsync();
     }
 }

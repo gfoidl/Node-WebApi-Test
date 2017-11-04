@@ -36,6 +36,15 @@
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="src\index.ts" />
+    <TypeScriptCompile Include="src\models\orm\address.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\models\orm\index.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\models\orm\person.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="src\services\person-service.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
@@ -52,6 +61,7 @@
     <Folder Include="src\controllers" />
     <Folder Include="src\models" />
     <Folder Include="src\contracts\" />
+    <Folder Include="src\models\orm\" />
     <Folder Include="src\services\" />
     <Folder Include="src\views" />
   </ItemGroup>

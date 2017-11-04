@@ -1,30 +1,89 @@
 ﻿import * as logger                 from "winston";
-import { Provides }               from "typescript-ioc";
+import * as db                    from "typeorm";
+import * as orm                   from "../models/orm";
 import { Person, IPersonService } from "../contracts/person-service";
+import { Provides }               from "typescript-ioc";
+import { CallCCtor }              from "../extension-methods";
 //-----------------------------------------------------------------------------
 @Provides(IPersonService)
+@CallCCtor
 class PersonService implements IPersonService {
-    public GetAllPersons(): Promise<Person[]> {
-        return new Promise<Person[]>((resolve, reject) => {
-            const persons = PersonService.CreateDummyPersons();
+    public static async StaticConstruct(): Promise<db.Connection> {
+        logger.debug("PersonService.CCtor");
 
-            resolve(persons);
-        });
+        return PersonService.ConnectAsync();
     }
     //-------------------------------------------------------------------------
-    public StorePerson(person: Person): Promise<Person> {
-        logger.warn("PersonService.StorePerson is not implemented, only a fake");
+    public async GetAllPersonsAsync(): Promise<Person[]> {
+        try {
+            const res = await this.GetRepo().findAndCount();
 
-        return new Promise<Person>((res, rej) => {
-            res(person);
-        });
+            logger.info(`queried ${res[1]} entries`);
+            return res[0];
+        } catch (e) {
+            const err = <Error>e;
+            logger.error(err.message);
+            throw err;
+        }
     }
     //-------------------------------------------------------------------------
-    private static CreateDummyPersons(): Person[] {
-        const p1 = new Person("Adam", 32);
-        const p2 = new Person("Berta", 67);
+    public async StorePersonAsync(person: Person): Promise<Person> {
+        try {
+            let ormPerson = this.ToOrmPerson(person);
+            ormPerson     = await this.GetRepo().save(ormPerson);
 
-        return [p1, p2];
+            logger.info(`person with ID ${ormPerson.Id} stored`);
+
+            return ormPerson;
+        } catch (e) {
+            const err = <Error>e;
+            logger.error(err.message);
+            throw err;
+        }
+    }
+    //-------------------------------------------------------------------------
+    private ToOrmPerson(person: Person): orm.Person {
+        const ormAddress: orm.Address = {
+            City   : person.Address.City,
+            Country: person.Address.Country,
+            Street : person.Address.Street,
+            ZIP    : person.Address.ZIP
+        };
+
+        const ormPerson = {
+            Address: ormAddress,
+            Age    : person.Age,
+            Name   : person.Name
+        } as orm.Person;
+
+        return ormPerson;
+    }
+    //-------------------------------------------------------------------------
+    private GetRepo(): db.MongoRepository<orm.Person> {
+        return db.getMongoRepository(orm.Person);
+    }
+    //-------------------------------------------------------------------------
+    private static async ConnectAsync(): Promise<db.Connection> {
+        const connOptions = {
+            type    : "mongodb",
+            host    : "ds245805.mlab.com",
+            port    : 45805,
+            username: process.env.MONGO_USER,
+            password: process.env.MONGO_PASSWORD,
+            database: "node-test",
+            entities: [
+                orm.Person,
+                orm.Address
+            ]
+        } as db.ConnectionOptions;
+
+        try {
+            return await db.createConnection(connOptions);
+        } catch (e) {
+            const err = <Error>e;
+            logger.error(err.message);
+            throw err;
+        }
     }
 }
 //-----------------------------------------------------------------------------
