@@ -790,6 +790,13 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
 
+typescript-ioc@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/typescript-ioc/-/typescript-ioc-1.0.2.tgz#74ce02fc6f48c662331ad06468eab21f37393f3c"
+  dependencies:
+    reflect-metadata "^0.1.10"
+    require-glob "^3.2.0"
+
 typescript-rest-swagger@^0.0.12:
   version "0.0.12"
   resolved "https://registry.yarnpkg.com/typescript-rest-swagger/-/typescript-rest-swagger-0.0.12.tgz#dcbbc19407293dbaa11d6d9afca6712149bec286"

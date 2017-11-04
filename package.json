@@ -11,6 +11,7 @@
     },
     "dependencies": {
         "tslib"                  : "^1.8.0",
+        "typescript-ioc"         : "^1.0.2",
         "typescript-rest"        : "^1.1.2",
         "typescript-rest-swagger": "^0.0.12"
     },
