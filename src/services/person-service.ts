@@ -1,7 +1,6 @@
 ﻿import { Person, IPersonService } from "../contracts/person-service";
-export { Person, IPersonService } from "../contracts/person-service";
 //-----------------------------------------------------------------------------
-export class PersonService implements IPersonService {
+class PersonService implements IPersonService {
     public GetAllPersons(): Promise<Person[]> {
         return new Promise<Person[]>((resolve, reject) => {
             const persons = PersonService.CreateDummyPersons();
@@ -17,3 +16,6 @@ export class PersonService implements IPersonService {
         return [p1, p2];
     }
 }
+//-----------------------------------------------------------------------------
+export { Person, IPersonService } from "../contracts/person-service";
+export { PersonService };

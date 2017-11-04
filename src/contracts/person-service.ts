@@ -1,6 +1,8 @@
 ﻿import { Person } from "../models/person";
-export { Person } from "../models/person";
 //-----------------------------------------------------------------------------
-export interface IPersonService {
+interface IPersonService {
     GetAllPersons(): Promise<Person[]>;
 }
+//-----------------------------------------------------------------------------
+export { Person } from "../models/person";
+export { IPersonService };
