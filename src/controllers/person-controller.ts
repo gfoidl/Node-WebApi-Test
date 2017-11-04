@@ -1,7 +1,7 @@
-import * as logger                              from "winston";
-import { GET, DELETE, Path, PathParam, Errors } from "typescript-rest";
-import { Inject }                               from "typescript-ioc";
-import { IPersonService, Person }               from "../services/person-service";
+import * as logger                                               from "winston";
+import { GET, POST, DELETE, Path, PathParam, FormParam, Errors } from "typescript-rest";
+import { Inject }                                                from "typescript-ioc";
+import { IPersonService, Person }                                from "../services/person-service";
 //-----------------------------------------------------------------------------
 @Path("/person")
 export class PersonController {
@@ -17,9 +17,32 @@ export class PersonController {
         @PathParam("name") name: string,
         @PathParam("age")  age : number
         ): Promise<Person> {
-        logger.verbose(`creating new person with name: ${name}`);
+        logger.verbose(`creating new person by GET with name: ${name}`);
 
         const person = new Person(name, age);
+        return this._personService.StorePersonAsync(person);
+    }
+    //-------------------------------------------------------------------------
+    @Path("create")
+    @POST
+    public CreatePersonFromPost(
+        @FormParam("name")    name   : string,
+        @FormParam("age")     age    : number,
+        @FormParam("street")  street : string,
+        @FormParam("zip")     zip    : string,
+        @FormParam("city")    city   : string,
+        @FormParam("country") country: string
+        ): Promise<Person> {
+        logger.verbose(`creating new person by POST with name: ${name}`);
+
+        const person = new Person(name, age);
+        person.Address = {
+            City   : city,
+            Country: country,
+            Street : street,
+            ZIP    : zip
+        };
+
         return this._personService.StorePersonAsync(person);
     }
     //-------------------------------------------------------------------------
