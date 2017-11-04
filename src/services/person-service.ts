@@ -42,6 +42,34 @@ class PersonService implements IPersonService {
         }
     }
     //-------------------------------------------------------------------------
+    public async GetPersonAsync(name: string): Promise<Person | null> {
+        try {
+            const person = await this.GetRepo().findOne({
+                Name: name
+            } as orm.Person);
+
+            if (!person) return null;
+            return person;
+        } catch (e) {
+            const err = <Error>e;
+            logger.error(err.message);
+            throw err;
+        }
+    }
+    //-------------------------------------------------------------------------
+    public async DeletePersonAsync(name: string): Promise<any> {
+        try {
+            const result = await this.GetRepo().deleteOne({
+                Name: name
+            } as orm.Person);
+            return result.deletedCount == 0 ? null : result.result;
+        } catch (e) {
+            const err = <Error>e;
+            logger.error(err.message);
+            throw err;
+        }
+    }
+    //-------------------------------------------------------------------------
     private ToOrmPerson(person: Person): orm.Person {
         const ormAddress: orm.Address = {
             City   : person.Address.City,
