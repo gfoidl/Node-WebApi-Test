@@ -29,7 +29,7 @@ class PersonService implements IPersonService {
     //-------------------------------------------------------------------------
     public async StorePersonAsync(person: Person): Promise<Person> {
         try {
-            let ormPerson = this.ToOrmPerson(person);
+            let ormPerson = <orm.Person>person;
             ormPerson     = await this.GetRepo().save(ormPerson);
 
             logger.info(`person with ID ${ormPerson.Id} stored`);
@@ -68,23 +68,6 @@ class PersonService implements IPersonService {
             logger.error(err.message);
             throw err;
         }
-    }
-    //-------------------------------------------------------------------------
-    private ToOrmPerson(person: Person): orm.Person {
-        const ormAddress: orm.Address = {
-            City   : person.Address.City,
-            Country: person.Address.Country,
-            Street : person.Address.Street,
-            ZIP    : person.Address.ZIP
-        };
-
-        const ormPerson = {
-            Address: ormAddress,
-            Age    : person.Age,
-            Name   : person.Name
-        } as orm.Person;
-
-        return ormPerson;
     }
     //-------------------------------------------------------------------------
     private GetRepo(): db.MongoRepository<orm.Person> {
