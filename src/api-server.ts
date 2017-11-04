@@ -1,3 +1,4 @@
+import * as logger  from "winston";
 import * as express from "express";
 import { Server }   from "typescript-rest";
 import * as http    from "http";
@@ -16,6 +17,15 @@ export class ApiServer {
         Server.useIoC();
         Server.buildServices(this._app, ...controllers);
         Server.swagger(this._app, "./dist/swagger.json", "/api-doc", "localhost:8080", ["http"]);
+
+        logger.configure({
+            level: "debug",
+            transports: [
+                new logger.transports.Console({
+                    colorize: true
+                })
+            ]
+        });
     }
     //-------------------------------------------------------------------------
     private Config(): void {
@@ -25,6 +35,8 @@ export class ApiServer {
     }
     //-------------------------------------------------------------------------
     public Start(): Promise<any> {
+        logger.verbose("Starting server");
+
         return new Promise<any>((resolve, reject) => {
             this._server = this._app.listen(this.PORT, (err: any) => {
                 if (err) {
@@ -38,6 +50,8 @@ export class ApiServer {
     }
     //-------------------------------------------------------------------------
     public Stop(): Promise<any> {
+        logger.verbose("Stopping server");
+
         return new Promise<any>((resolve, reject) => {
             if (this._server) {
                 this._server.close(() => {
