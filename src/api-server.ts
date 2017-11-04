@@ -29,7 +29,7 @@ export class ApiServer {
     }
     //-------------------------------------------------------------------------
     private Config(): void {
-        const viewPath = path.join(__dirname, "..", "src", "views");
+        const viewPath = path.join(__dirname, "..", "src", "wwwroot");
 
         this._app.use(express.static(viewPath));
     }

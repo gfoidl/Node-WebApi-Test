@@ -2,7 +2,7 @@
     "compilerOptions": {
         "target"                : "es2016",
         "module"                : "commonjs",
-        "lib"                   : [ "es2015" ],
+        "lib"                   : [ "es2015", "dom" ],
         "declaration"           : true,
         "removeComments"        : true,
         "importHelpers"         : true,
@@ -16,6 +16,8 @@
     },
     "exclude": [
         "node_modules",
-        "dist"
+        "dist",
+        "src-client",
+        "src/wwwroot/js"
     ]
 }

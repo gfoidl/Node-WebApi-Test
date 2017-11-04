@@ -11,3 +11,4 @@ npm-debug.log*
 /.vs
 /obj
 /bin
+/src/wwwroot/js

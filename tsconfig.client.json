@@ -1,0 +1,10 @@
+{
+    "compileOnSave"  : true,
+    "exclude"        : [ "node_modules", "src/wwwroot" ],
+    "compilerOptions": {
+        "target"       : "es5",
+        "module"       : "commonjs",
+        "lib"          : [ "dom", "es2015" ],
+        "importHelpers": true
+    }
+}
