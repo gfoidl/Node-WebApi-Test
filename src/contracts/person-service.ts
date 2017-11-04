@@ -1,7 +1,7 @@
 ﻿import { Person } from "../models/person";
 //-----------------------------------------------------------------------------
-interface IPersonService {
-    GetAllPersons(): Promise<Person[]>;
+abstract class IPersonService {
+    abstract GetAllPersons(): Promise<Person[]>;
 }
 //-----------------------------------------------------------------------------
 export { Person } from "../models/person";

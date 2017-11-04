@@ -1,5 +1,7 @@
-﻿import { Person, IPersonService } from "../contracts/person-service";
+﻿import { Provides }            from "typescript-ioc";
+import { Person, IPersonService } from "../contracts/person-service";
 //-----------------------------------------------------------------------------
+@Provides(IPersonService)
 class PersonService implements IPersonService {
     public GetAllPersons(): Promise<Person[]> {
         return new Promise<Person[]>((resolve, reject) => {

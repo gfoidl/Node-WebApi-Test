@@ -1,12 +1,12 @@
-import { GET, Path, PathParam }                  from "typescript-rest";
-import { Inject }                                from "typescript-ioc";
-import { IPersonService, PersonService, Person } from "../services/person-service";
+import { GET, Path, PathParam }   from "typescript-rest";
+import { Inject }                 from "typescript-ioc";
+import { IPersonService, Person } from "../services/person-service";
 //-----------------------------------------------------------------------------
 @Path("/person")
 export class PersonController {
-    private _personService: PersonService;
+    private _personService: IPersonService;
     //-------------------------------------------------------------------------
-    constructor( @Inject personService: PersonService) {
+    constructor( @Inject personService: IPersonService) {
         this._personService = personService;
     }
     //-------------------------------------------------------------------------
