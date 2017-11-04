@@ -10,6 +10,7 @@
         "rimraf"    : "^2.6.2"
     },
     "dependencies": {
+        "inversify"              : "^4.5.1",
         "tslib"                  : "^1.8.0",
         "typescript-rest"        : "^1.1.2",
         "typescript-rest-swagger": "^0.0.12"

@@ -32,10 +32,19 @@
     <TypeScriptCompile Include="src\contracts\person-service.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="src\controllers\controller.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="src\extension-methods.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="src\index.ts" />
+    <TypeScriptCompile Include="src\inversify.config.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\service-factory.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="src\services\person-service.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
@@ -46,6 +55,9 @@
     <TypeScriptCompile Include="src\models\address.ts" />
     <TypeScriptCompile Include="src\models\person.ts" />
     <Content Include="src\views\index.html" />
+    <TypeScriptCompile Include="src\types.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src" />

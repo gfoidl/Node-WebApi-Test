@@ -1,8 +1,9 @@
-import * as express from "express";
-import { Server }   from "typescript-rest";
-import * as http    from "http";
-import * as path    from "path";
-import controllers  from "./controllers"
+import * as express       from "express";
+import { Server }         from "typescript-rest";
+import * as http          from "http";
+import * as path          from "path";
+import { ServiceFactory } from "./service-factory";
+import controllers        from "./controllers"
 //-----------------------------------------------------------------------------
 export class ApiServer {
     private _app   : express.Application;
@@ -10,9 +11,11 @@ export class ApiServer {
     public PORT    : number = parseInt(<string>process.env.PORT) || 8080;
     //-------------------------------------------------------------------------
     constructor() {
-        this._app = express();
+        const serviceFactory = new ServiceFactory();
+        this._app            = express();
         this.Config();
 
+        Server.registerServiceFactory(serviceFactory);
         Server.buildServices(this._app, ...controllers);
         Server.swagger(this._app, "./dist/swagger.json", "/api-doc", "localhost:8080", ["http"]);
     }
