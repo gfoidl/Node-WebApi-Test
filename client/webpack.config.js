@@ -5,7 +5,7 @@ const notifier = require("webpack-notifier");
 const config = {
     entry: {
         main   : "./src/main",
-        commons: [ "jquery", "knockout", "tslib" ]
+        commons: [ "jquery", "jquery-ui-bundle", "knockout", "tslib" ]
     },
     resolve: {
         extensions: [".ts", ".js"]

@@ -1,10 +1,20 @@
 ﻿import { Person, IPersonService } from "./contracts";
 import * as services              from "./services";
 //-----------------------------------------------------------------------------
-$(() => {
+$(async () => {
     const personService: IPersonService = new services.PersonService();
     const vm                            = new MainViewModel(personService);
-    vm.Start();
+
+    try {
+        await vm.Start();
+        console.info("done");
+    } catch (e) {
+        const err = <Error>e;
+        const msg = `${err.name}\n\n${err.message}`;
+
+        console.error(msg);
+        alert(msg);
+    }
 });
 //-----------------------------------------------------------------------------
 class MainViewModel {
@@ -28,6 +38,13 @@ class MainViewModel {
                 this.cities.push(city);
         }
 
+        console.debug("data here");
+        console.debug("applying bindings");
+
         ko.applyBindings(this);
+
+        console.info("viewmodel bound");
+
+        $("#content").show("blind", 500);
     }
 }

@@ -1,18 +1,20 @@
 {
-	"name"			 : "myproject",
-	"version"		 : "1.0.0",
-	"author"		 : "gfoidl",
-	"devDependencies": {
-		"@types/jquery"	   : "3.2.13",
-		"@types/knockout"  : "3.4.46",
-		"jquery"		   : "3.2.1",
-		"knockout"		   : "3.4.2",
-		"ts-loader"		   : "2.3.7",
-		"tslib"			   : "1.7.1",
-		"tslint"		   : "5.7.0",
-		"tslint-loader"	   : "3.5.3",
-		"typescript"	   : "2.5.3",
-		"webpack"		   : "3.6.0",
-		"webpack-notifier" : "1.5.0"
-	}
+    "name"           : "myproject",
+    "version"        : "1.0.0",
+    "author"         : "gfoidl",
+    "devDependencies": {
+        "@types/jquery"    : "3.2.13",
+        "@types/jqueryui"  : "1.11.37",
+        "@types/knockout"  : "3.4.46",
+        "jquery"           : "3.2.1",
+        "jquery-ui-bundle" : "^1.12.1",
+        "knockout"         : "3.4.2",
+        "ts-loader"        : "2.3.7",
+        "tslib"            : "1.7.1",
+        "tslint"           : "5.7.0",
+        "tslint-loader"    : "3.5.3",
+        "typescript"       : "2.5.3",
+        "webpack"          : "3.6.0",
+        "webpack-notifier" : "1.5.0"
+    }
 }

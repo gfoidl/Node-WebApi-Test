@@ -25,6 +25,9 @@
     <Content Include=".dockerignore" />
     <Content Include="Dockerfile" />
     <Content Include="package.json" />
+    <Content Include="src\wwwroot\css\main.css">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="swagger.config.json" />
     <Content Include="tsconfig.json" />
     <Content Include="tslint.json" />
@@ -65,6 +68,7 @@
     <Folder Include="src\services\" />
     <Folder Include="src\wwwroot\" />
     <Folder Include="src\wwwroot\js\" />
+    <Folder Include="src\wwwroot\css\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="src\wwwroot\js\commons.build.js" />

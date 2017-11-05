@@ -3,43 +3,48 @@
 <head>
     <meta charset="utf-8" />
     <title>REST-Api with Node.js</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 <body>
     <h1>API Test</h1>
     <h2>Documentation</h2>
     <a href="/api-doc">Swagger</a>
 
-    <h2>Persons</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Age</th>
-                <th>City</th>
-            </tr>
-        </thead>
-        <tbody data-bind="foreach: persons">
-            <tr>
-                <td data-bind="text: Id"></td>
-                <td data-bind="text: Name"></td>
-                <td data-bind="text: Age"></td>
-                <td data-bind="text: Address.City"></td>
-            </tr>
-        </tbody>
-    </table>
+    <div id="content">
+        <h2>Persons</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>City</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: persons">
+                <tr>
+                    <td data-bind="text: Id"></td>
+                    <td data-bind="text: Name"></td>
+                    <td data-bind="text: Age"></td>
+                    <td data-bind="text: Address.City"></td>
+                </tr>
+            </tbody>
+        </table>
 
-    <h2>Names</h2>
-    <ul data-bind="foreach: persons">
-        <li data-bind="text: Name"></li>
-    </ul>
+        <h2>Names</h2>
+        <ul data-bind="foreach: persons">
+            <li data-bind="text: Name"></li>
+        </ul>
 
-    <h2>Cities</h2>
-    <ul data-bind="foreach: cities">
-        <li data-bind="text: $data"></li>
-    </ul>
+        <h2>Cities</h2>
+        <ul data-bind="foreach: cities">
+            <li data-bind="text: $data"></li>
+        </ul>
+    </div>
 
     <script src="/js/commons.build.js"></script>
     <script src="/js/main.build.js"></script>
+
 </body>
 </html>
