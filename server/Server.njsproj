@@ -54,7 +54,7 @@
     <TypeScriptCompile Include="src\controllers\person-controller.ts" />
     <TypeScriptCompile Include="src\models\address.ts" />
     <TypeScriptCompile Include="src\models\person.ts" />
-    <Content Include="src\wwwroot\views\index.html" />
+    <Content Include="src\wwwroot\index.html" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src" />
@@ -64,7 +64,11 @@
     <Folder Include="src\models\orm\" />
     <Folder Include="src\services\" />
     <Folder Include="src\wwwroot\" />
-    <Folder Include="src\wwwroot\views\" />
+    <Folder Include="src\wwwroot\js\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="src\wwwroot\js\commons.build.js" />
+    <Compile Include="src\wwwroot\js\main.build.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <!--Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them.-->
