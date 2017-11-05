@@ -1,8 +1,8 @@
-﻿import { Person } from "../../server/src/models/person";
+﻿import { Person } from "./models";
 //-----------------------------------------------------------------------------
 interface IPersonService {
     GetPersonsAsync(): Promise<Person[]>;
 }
 //-----------------------------------------------------------------------------
-export { Person } from "../../server/src/models/person";
+export { Person } from "./models";
 export { IPersonService };

@@ -1,11 +1,11 @@
-﻿import { Person } from "../models/person";
+﻿import { Person } from "../models";
 //-----------------------------------------------------------------------------
 abstract class IPersonService {
-	abstract GetAllPersonsAsync()			 : Promise<Person[]>;
-	abstract StorePersonAsync(person: Person): Promise<Person>;
-	abstract GetPersonAsync(name: string)	 : Promise<Person | null>;
-	abstract DeletePersonAsync(name: string) : Promise<any>;
+    abstract GetAllPersonsAsync()            : Promise<Person[]>;
+    abstract StorePersonAsync(person: Person): Promise<Person>;
+    abstract GetPersonAsync(name: string)    : Promise<Person | null>;
+    abstract DeletePersonAsync(name: string) : Promise<any>;
 }
 //-----------------------------------------------------------------------------
-export { Person } from "../models/person";
+export { Person } from "../models";
 export { IPersonService };
